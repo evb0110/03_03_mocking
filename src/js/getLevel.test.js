@@ -8,7 +8,7 @@ beforeEach(() => {
 });
 
 test('testing http request address for userId == 42', () => {
-  fetchData.mockReturnValue({});
+  fetchData.mockReturnValue(JSON.stringify({}));
 
   getLevel(42);
   expect(fetchData).toBeCalledWith('https://server/user/42');
