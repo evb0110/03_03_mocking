@@ -25,6 +25,6 @@ test('testing level value for ok response', () => {
   };
   fetchData.mockReturnValue(response);
   const level = getLevel(1);
-  const expected = `Ваш текущий уровень: 42`;
+  const expected = 'Ваш текущий уровень: 42';
   expect(level).toBe(expected);
 });
