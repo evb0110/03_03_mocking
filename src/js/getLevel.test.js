@@ -7,13 +7,6 @@ beforeEach(() => {
   jest.resetAllMocks();
 });
 
-test('testing http request address for userId == 42', () => {
-  fetchData.mockReturnValue(JSON.stringify({}));
-
-  getLevel(42);
-  expect(fetchData).toBeCalledWith('https://server/user/42');
-});
-
 test('testung return value for response.status !==\'ok\'', () => {
   const response = {
     status: 'notOk',
@@ -32,5 +25,6 @@ test('testing level value for ok response', () => {
   };
   fetchData.mockReturnValue(response);
   const level = getLevel(1);
-  expect(level).toMatch(/: 42/);
+  const expected = `Ваш текущий уровень: 42`;
+  expect(level).toBe(expected);
 });
