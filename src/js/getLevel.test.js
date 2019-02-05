@@ -14,6 +14,17 @@ test('testing http request address for userId == 42', () => {
   expect(fetchData).toBeCalledWith('https://server/user/42');
 });
 
+test('testung return value for response.status !==\'ok\'', () => {
+  const response = {
+    status: 'notOk',
+    level: -42,
+  };
+  fetchData.mockReturnValue(response);
+
+  const level = getLevel(1);
+  expect(level).toBe('Информация об уровне временно недоступна');
+});
+
 test('testing level value for ok response', () => {
   const response = {
     status: 'ok',
